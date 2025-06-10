@@ -21,7 +21,9 @@ export default function Swap() {
           <option>WETH</option>
         </select>
       </div>
-      <button className="btn btn-primary mt-4">Swap</button>
+      <button disabled={true} className="btn btn-primary mt-4">
+        Swap
+      </button>
     </fieldset>
   );
 }
