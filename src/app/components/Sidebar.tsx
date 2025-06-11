@@ -13,6 +13,30 @@ const PiSwapLight = dynamic(
   }
 );
 
+const MdOutlineWaves = dynamic(
+  () => import('react-icons/md').then((mod) => mod.MdOutlineWaves),
+  {
+    ssr: false,
+    loading: () => <span className="w-5 h-5" />,
+  }
+);
+
+const TbScanPosition = dynamic(
+  () => import('react-icons/tb').then((mod) => mod.TbScanPosition),
+  {
+    ssr: false,
+    loading: () => <span className="w-5 h-5" />,
+  }
+);
+
+const TbMoneybag = dynamic(
+  () => import('react-icons/tb').then((mod) => mod.TbMoneybag),
+  {
+    ssr: false,
+    loading: () => <span className="w-5 h-5" />,
+  }
+);
+
 const NavLink = ({
   href,
   children,
@@ -40,16 +64,27 @@ export default function Sidebar() {
           <NavLink href="/">
             <Suspense fallback={<span className="w-5 h-5" />}>
               <PiSwapLight className="w-5 h-5" />
-            </Suspense>{' '}
+            </Suspense>
             Swap
           </NavLink>
-          <NavLink href="/pool">Pool</NavLink>
-          <li>
-            <a>Positions</a>
-          </li>
-          <li>
-            <a>Staking</a>
-          </li>
+          <NavLink href="/pool">
+            <Suspense fallback={<span className="w-5 h-5" />}>
+              <MdOutlineWaves className="w-5 h-5" />
+            </Suspense>
+            Pool
+          </NavLink>
+          <NavLink href="/positions">
+            <Suspense fallback={<span className="w-5 h-5" />}>
+              <TbScanPosition className="w-5 h-5" />
+            </Suspense>
+            Positions
+          </NavLink>
+          <NavLink href="/staking">
+            <Suspense fallback={<span className="w-5 h-5" />}>
+              <TbMoneybag className="w-5 h-5" />
+            </Suspense>
+            Staking
+          </NavLink>
         </ul>
       </div>
     </div>
