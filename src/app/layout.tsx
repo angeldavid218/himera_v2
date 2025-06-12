@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import Chat from './components/Chat';
+/* import AnimatedBackground from './components/AnimatedBackground'; */
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -30,8 +31,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* <AnimatedBackground /> */}
         <Navbar />
-        <div className="flex gap-4 min-h-[calc(80vh)]">
+        <div className="flex gap-4 min-h-[calc(80vh)] flex-col md:flex-row">
           <Sidebar />
           <div className="flex-1">{children}</div>
           <Chat />

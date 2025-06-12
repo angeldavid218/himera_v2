@@ -8,7 +8,6 @@ import {
   TbScanPosition,
   TbMoneybag,
 } from '../lib/icons';
-import { useIsMobile } from '../hooks/useMobile';
 const NavLink = ({
   href,
   children,
@@ -29,14 +28,9 @@ const NavLink = ({
 };
 
 export default function Sidebar() {
-  const isMobile = useIsMobile();
-
   return (
     <>
-      <div
-        className="bg-base-200 w-70 rounded-box"
-        style={{ display: isMobile ? 'none' : 'block' }}
-      >
+      <div className="bg-base-200 sm:hidden lg:block w-70 rounded-box">
         <div className="p-3">
           <ul className="menu menu-lg rounded-box w-full">
             <NavLink href="/">
@@ -58,29 +52,26 @@ export default function Sidebar() {
           </ul>
         </div>
       </div>
-      <div
-        className="dock w-full flex justify-around items-center"
-        style={{ display: isMobile ? 'flex' : 'none' }}
-      >
-        <button className="btn h-16">
+      <div className="dock w-full md:flex lg:hidden flex justify-around items-center">
+        <Link href="/" className="btn h-16">
           <PiSwapLight className="w-5 h-5" />
           <span className="dock-label">Swap</span>
-        </button>
+        </Link>
 
-        <button className="btn h-16">
+        <Link href="/pool" className="btn h-16">
           <MdOutlineWaves className="w-5 h-5" />
           <span className="dock-label">Pool</span>
-        </button>
+        </Link>
 
-        <button className="btn h-16">
+        <Link href="/positions" className="btn h-16">
           <TbScanPosition className="w-5 h-5" />
           <span className="dock-label">Positions</span>
-        </button>
+        </Link>
 
-        <button className="btn h-16">
+        <Link href="/staking" className="btn h-16">
           <TbMoneybag className="w-5 h-5" />
           <span className="dock-label">Staking</span>
-        </button>
+        </Link>
       </div>
     </>
   );

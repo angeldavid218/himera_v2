@@ -9,12 +9,25 @@
     --background: #0f172a;
     --foreground: #f8fafc;
   }
-}
 
-@layer base {
+  @keyframes float {
+    from {
+      transform: rotate(0deg) scale(12) translateX(-20px);
+    }
+    to {
+      transform: rotate(360deg) scale(var(--scale, 18))
+        translateX(var(--translate, 20px));
+    }
+  }
+
   body {
-    @apply bg-base-100 text-base-content min-h-screen;
+    @apply text-base-content min-h-screen;
     font-family: var(--font-sans);
+    background: linear-gradient(
+      135deg,
+      #0f172a 0%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
   }
 
   /* Typography */
